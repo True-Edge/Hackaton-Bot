@@ -1,0 +1,25 @@
+{
+  "name": "hackaton-bot",
+  "version": "1.0.0",
+  "description": "Pd's Event",
+  "main": "d.js",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "erela.js": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/True-Edge/Hackaton-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/True-Edge/Hackaton-Bot/issues"
+  },
+  "homepage": "https://github.com/True-Edge/Hackaton-Bot#readme"
+}
