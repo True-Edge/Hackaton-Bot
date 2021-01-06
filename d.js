@@ -27,7 +27,7 @@ client.Music = new Manager({
     .on("queueEnd", (player) => {
         const embed = new MessageEmbed()
             .setDescription("Queue has ended.");
-        client.channels.channels
+        client.channels.cache
             .get(player.textChannel)
             .send(embed);
         
