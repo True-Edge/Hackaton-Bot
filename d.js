@@ -39,7 +39,7 @@ client.Music = new Manager({
                     msg.send(embed)
                     player.destroy();
                 }
-        }, 30000);
+        }, 300000);
     })
 
 
