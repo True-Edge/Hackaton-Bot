@@ -25,7 +25,10 @@ module.exports = {
         const maxPages = Math.ceil(queue.length / multiple);
 
         embed.setFooter(`Page ${page > maxPages ? maxPages : page} of ${maxPages}`);
-
-        return message.reply(embed);
+        if (player && player.textChannel == message.channel.id) {
+            return message.reply(embed);
+        } else {
+            message.channel.send("Is not the correct blinded channel or player not detected in this guild!")
+        }
     }
 }

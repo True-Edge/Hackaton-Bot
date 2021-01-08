@@ -10,7 +10,7 @@ module.exports = {
 
         const msg = client.channels.cache.get(player.textChannel);
 
-        if (queue != null) {
+        if (queue != null && player && player.textChannel == message.channel.id) {
             const embed = new MessageEmbed()
                 .setDescription(`Track [${queue.title}](${queue.uri}) has been removed on request`)
                 .setFooter(`Requester : ${message.author.username}`, message.author.avatarURL());
@@ -19,9 +19,9 @@ module.exports = {
             await player.queue.remove(args-1)
         } else {
             const embed = new MessageEmbed()
-                .setDescription("Out of index.")
+                .setDescription("Out of index or channel does not match with blinded channel!")
                 .setFooter(`Requester : ${message.author.username}`, message.author.avatarURL());
-            msg.send(embed)
+            message.channel.send(embed)
         }
     }
 }
