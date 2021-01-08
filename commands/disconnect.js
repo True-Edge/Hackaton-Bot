@@ -12,6 +12,7 @@ module.exports = {
         
         if (player) {
             message.channel.send(embed)
+            clearTimeout(QueueEndTimeout);
             player.destroy();
         } else {
             embed.setDescription("Unable to disconnect as Player is not detected in any VC of this guild!")

@@ -31,7 +31,7 @@ client.Music = new Manager({
             .get(player.textChannel)
             .send(embed);
         
-        setTimeout(() => {
+        QueueEndTimeout = setTimeout(() => {
                 if (player.queue.length != 0) { return; }
                 else { 
                     embed.setDescription("Looks like I'm am inactive for 5 min. Disconnecting to save bandwidth.");
