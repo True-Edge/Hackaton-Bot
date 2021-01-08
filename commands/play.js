@@ -4,18 +4,23 @@ module.exports = {
     name: 'play',
     description: 'Play music. Usage: play <link/search term>',
     async execute (client, message, args) {
-        if (!args) {message.reply("Missing Argument. Usage: `play <link/search term>`")}
-        if (!message.member.voice) {message.reply("You must be in a voice channel")}
+        if (!args) {message.reply("Missing Argument. Usage: `play <link/search term>`")};
+        if (!message.member.voice) {message.reply("You must be in a voice channel")};
 
-        const player = client.Music.create({
-            guild: message.guild.id,
-            voiceChannel: message.member.voice.channel.id,
-            textChannel: message.channel.id,
-            selfDeafen: true,
-            volume: 50
-        })
+        let player;
+        if (!client.Music.player) {
+            player = client.Music.create({
+                guild: message.guild.id,
+                voiceChannel: message.member.voice.channel.id,
+                textChannel: message.channel.id,
+                selfDeafen: true,
+                volume: 50
+            })
+        }
 
-        if (player.state !== 'CONNECTED') {player.connect();}
+        if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined VC:**${message.member.voice.name}** And Blinded To **${message.channel.name}**`)}
+
+        if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now blinded to **${client.channels.cache.get(player.textChannel).name}**`);
 
         const res = await player.search(args.join(" "), message.author);
 
