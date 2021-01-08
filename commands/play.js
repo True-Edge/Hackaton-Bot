@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: 'play',
+    aliases: ['p'],
     description: 'Play music. Usage: play <link/search term>',
     async execute (client, message, args) {
         if (!args) {message.reply("Missing Argument. Usage: `play <link/search term>`")};
@@ -14,7 +15,7 @@ module.exports = {
                 voiceChannel: message.member.voice.channel.id,
                 textChannel: message.channel.id,
                 selfDeafen: true,
-                volume: 50
+                volume: 35
             })
         }
 

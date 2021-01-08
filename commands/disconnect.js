@@ -1,9 +1,9 @@
 const { MessageEmbed } = require("discord.js");
-const { Player } = require("erela.js");
 
 module.exports = {
     name: 'disconnect',
     description: "Disconnect on requset.",
+    aliases: ['dc'],
     async execute(client, message, args) {
         const player = message.client.Music.get(message.guild.id);
         const embed = new MessageEmbed()

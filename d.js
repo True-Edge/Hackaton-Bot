@@ -32,7 +32,7 @@ client.Music = new Manager({
             .send(embed);
         
         QueueEndTimeout = setTimeout(() => {
-                if (player.queue.length != 0) { return; }
+                if (player.queue.length != 0 || player.queue.length == 0 && player.queue.current) { return; }
                 else { 
                     embed.setDescription("Looks like I'm am inactive for 5 min. Disconnecting to save bandwidth.");
                     var msg = client.channels.cache.get(player.textChannel)
@@ -45,12 +45,13 @@ client.Music = new Manager({
 
 const fs = require('fs');
 client.commands = new Collection();
-const commandFiles = fs.readdirSync("./commands/").filter(file => file.endsWith('.js'))
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
-}
-
+fs.readdir("./commands/", (err, files) => {
+    if (err) console.log(err);
+    files.filter(file => file.endsWith('.js')).forEach(file => {
+        const command = require(`./commands/${file}`);
+        client.commands.set(command.name, command)
+    })
+})
 
 client.once('ready', () => {
     console.log("Ready!")
@@ -65,8 +66,8 @@ client.on('message', async (message) => {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    if (!client.commands.has(commandName)) return;
-    const command = client.commands.get(commandName)
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+    if (!command) return;
     try {
         command.execute(client, message, args);
     } catch (e) {
