@@ -25,6 +25,7 @@ module.exports = {
         const maxPages = Math.ceil(queue.length / multiple);
 
         embed.setFooter(`Page ${page > maxPages ? maxPages : page} of ${maxPages}`);
+        if (player && message.member.voice.channel.id != player.voiceChannel) {return message.reply("You're not in the same VC!")};
         if (player && player.textChannel == message.channel.id) {
             return message.reply(embed);
         } else {

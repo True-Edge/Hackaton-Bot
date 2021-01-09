@@ -11,9 +11,9 @@ module.exports = {
 
         if (!channel) {return message.reply("You must be in a voice channel to do this!")}
         else if(player) {
+            player.connect(channel);
             player.setVoiceChannel(channel.id)
             player.setTextChannel(message.channel.id)
-            player.connect();
         }
 
     

@@ -15,14 +15,14 @@ module.exports = {
                 voiceChannel: message.member.voice.channel.id,
                 textChannel: message.channel.id,
                 selfDeafen: true,
-                volume: 35
+                selfMute: false,
             })
         }
 
-        if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined VC:**${message.member.voice.name}** And Blinded To **${message.channel.name}**`)}
+        if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined \`${message.member.voice.channel.name}\` And Binded To \`${message.channel.name}\``)}
 
-        if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now blinded to **${client.channels.cache.get(player.textChannel).name}**`);
-
+        if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now binded to **${client.channels.cache.get(player.textChannel).name}**`);
+        if (player && message.member.voice.channel.id != player.voiceChannel) {return message.reply("You're not in the same VC!")};
         const res = await player.search(args.join(" "), message.author);
 
         switch (res.loadType) {
@@ -48,7 +48,7 @@ module.exports = {
                     message.channel.send(embed)
                 }
 
-                if (!player.playing && !player.paused && !player.queue.size) await player.play();
+                if (!player.playing && !player.paused && !player.queue.size) await player.play(); player.setVolume(35);
                 break;
 
             case 'PLAYLIST_LOADED':
@@ -66,7 +66,7 @@ module.exports = {
                 }
 
                 player.queue.add(res.tracks)
-                if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.length) player.play();
+                if (!player.playing && !player.paused && player.queue.totalSize === res.tracks.length) await player.play(); player.setVolume(35);
                 break;
 
             case 'NO_MATCHES':

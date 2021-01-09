@@ -45,10 +45,16 @@ client.Music = new Manager({
 
 const fs = require('fs');
 client.commands = new Collection();
+
 fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
-    files.filter(file => file.endsWith('.js')).forEach(file => {
-        const command = require(`./commands/${file}`);
+
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if (jsfile.length == 0) {console.log("No Command Loaded (Empty File)")};
+
+    jsfile.forEach((file, i) => {
+        let command = require(`./commands/${file}`);
+        console.log(`${file} Has Loaded`)
         client.commands.set(command.name, command)
     })
 })

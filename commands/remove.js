@@ -10,6 +10,7 @@ module.exports = {
 
         const msg = client.channels.cache.get(player.textChannel);
 
+        if (player && message.member.voice.channel.id != player.voiceChannel) {return message.reply("You're not in the same VC!")};
         if (queue != null && player && player.textChannel == message.channel.id) {
             const embed = new MessageEmbed()
                 .setDescription(`Track [${queue.title}](${queue.uri}) has been removed on request`)
