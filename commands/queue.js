@@ -29,7 +29,7 @@ module.exports = {
         if (player && player.textChannel == message.channel.id) {
             return message.reply(embed);
         } else {
-            message.channel.send("Is not the correct blinded channel or player not detected in this guild!")
+            message.channel.send("Is not the correct binded channel or player not detected in this guild!")
         }
     }
 }

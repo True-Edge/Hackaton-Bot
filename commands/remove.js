@@ -20,7 +20,7 @@ module.exports = {
             await player.queue.remove(args-1)
         } else {
             const embed = new MessageEmbed()
-                .setDescription("Out of index or channel does not match with blinded channel!")
+                .setDescription("Out of index or channel does not match with binded channel!")
                 .setFooter(`Requester : ${message.author.username}`, message.author.avatarURL());
             message.channel.send(embed)
         }
