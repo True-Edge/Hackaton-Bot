@@ -20,7 +20,7 @@ module.exports = {
 
         if (queue.current) embed.addField("Current Playing..", `[${queue.current.title}](${queue.current.uri})`);
         if (!tracks.length) embed.setDescription(`No tracks in ${page > 1 ? `page ${page}` : "the queue"}.`);
-        else embed.setDescription(tracks.map((track, i) => `${start + (++i)} - [${track.title}](${track.uri})`).join("\n"));
+        else embed.setDescription(tracks.map((track, i) => `${start + (++i)}. [${track.title}](${track.uri})`).join("\n"));
         
         const maxPages = Math.ceil(queue.length / multiple);
 
