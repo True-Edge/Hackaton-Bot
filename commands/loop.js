@@ -8,7 +8,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setFooter(`Requester : ${message.author.username}`, message.author.avatarURL());
 
-        if (player && message.member.voice.channel.id != player.voiceChannel) {return message.reply("You're not in the same VC!")};
+        if (player.state == 'CONNECTED' && player.voiceChannel != message.member.voice.channel.id) {return message.reply("You are not in the same VC as I am!")}
         if (player && player.queue.current && player.textChannel == message.channel.id && !player.trackRepeat) {
             embed.setDescription(`Enabled Track Loop`)
             message.channel.send(embed)

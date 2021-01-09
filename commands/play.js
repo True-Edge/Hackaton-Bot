@@ -10,7 +10,7 @@ module.exports = {
 
         let player;
         if (!client.Music.player) {
-            player = client.Music.create({
+            player = await client.Music.create({
                 guild: message.guild.id,
                 voiceChannel: message.member.voice.channel.id,
                 textChannel: message.channel.id,
@@ -20,9 +20,9 @@ module.exports = {
         }
 
         if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined \`${message.member.voice.channel.name}\` And Binded To \`${message.channel.name}\``)}
+        if (player.state == 'CONNECTED' && player.voiceChannel != message.member.voice.channel.id) {return message.reply("You are not in the same VC as I am!")}
 
         if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now binded to **${client.channels.cache.get(player.textChannel).name}**`);
-        if (player && message.member.voice.channel.id != player.voiceChannel) {return message.reply("You're not in the same VC!")};
         const res = await player.search(args.join(" "), message.author);
 
         switch (res.loadType) {
