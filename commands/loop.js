@@ -18,7 +18,7 @@ module.exports = {
             message.channel.send(embed)
             player.setTrackRepeat(false)
         } else {
-            embed.setDescription("Cannot set track repeat as:\n-Not playing\n-Not the blinded channel")
+            embed.setDescription("Cannot set track repeat as:\n-Not playing\n-Not the binded channel")
             message.channel.send(embed)
         }
     }

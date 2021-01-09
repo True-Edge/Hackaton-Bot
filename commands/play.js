@@ -19,9 +19,9 @@ module.exports = {
             })
         }
 
-        if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined VC:**${message.member.voice.name}** And Blinded To **${message.channel.name}**`)}
+        if (player.state !== 'CONNECTED') {player.connect(); message.channel.send(`Joined VC:**${message.member.voice.name}** And Binded To **${message.channel.name}**`)}
 
-        if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now blinded to **${client.channels.cache.get(player.textChannel).name}**`);
+        if (player && player.textChannel != message.channel.id) return message.channel.send(`I'm sorry, but this command is now binded to **${client.channels.cache.get(player.textChannel).name}**`);
 
         const res = await player.search(args.join(" "), message.author);
 

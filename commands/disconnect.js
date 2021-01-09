@@ -15,7 +15,7 @@ module.exports = {
             clearTimeout(QueueEndTimeout);
             player.destroy();
         } else {
-            embed.setDescription("Unable to disconnect as Player is not detected in any VC of this guild or is not in the blinded text channel!")
+            embed.setDescription("Unable to disconnect as Player is not detected in any VC of this guild or is not in the binded text channel!")
             message.channel.send(embed)
         }
     }
