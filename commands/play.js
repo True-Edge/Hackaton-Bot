@@ -4,6 +4,7 @@ module.exports = {
     name: 'play',
     aliases: ['p'],
     description: 'Play music. Usage: play <link/search term>',
+    botPermission: ["CONNECT", "SPEAK"],
     usage: '[link/search term]',
     async execute (client, message, args) {
         if (!args) {message.reply("Missing Argument. Usage: `play <link/search term>`")};

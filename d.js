@@ -31,7 +31,7 @@ client.Music = new Manager({
             .get(player.textChannel)
             .send(embed);
         
-        QueueEndTimeout = setTimeout(() => {
+        client.QueueEndTimeout = setTimeout(() => {
                 if (player.queue.length != 0 || player.queue.length == 0 && player.queue.current) { return; }
                 else { 
                     embed.setDescription("Looks like I'm am inactive for 5 min. Disconnecting to save bandwidth.");
@@ -79,6 +79,11 @@ client.on('message', async (message) => {
     } catch (e) {
         console.log(e);
         message.reply("There was an error while executing that command!");
+    }
+
+    if (command.botPermission) {
+        if (message.guild.me.hasPermission(command.botPermission)) {return;}
+        else {return message.channel.send(`Bot is missing the following perms \`{${command.botPermission}}\``);}
     }
 });
 

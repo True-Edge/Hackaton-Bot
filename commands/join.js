@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "join",
     description: "Join to the VC you want! (This overwrites binded text and voice channel)",
+    botPermission: ["CONNECT", "SPEAK"],
     async execute(client, message, args) {
         let player = message.client.Music.get(message.guild.id);
         const channel = message.member.voice.channel;

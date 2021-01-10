@@ -13,8 +13,12 @@ module.exports = {
         if (player.state == 'CONNECTED' && player.voiceChannel != message.member.voice.channel.id) {return message.reply("You are not in the same VC as I am!")}
         if (player && player.textChannel == message.channel.id) {
             message.channel.send(embed)
-            clearTimeout(QueueEndTimeout);
-            player.destroy();
+            if (client.QueueEndTimeout) {
+                clearTimeout(QueueEndTimeout);
+                player.destroy();
+            } else {
+                player.destroy();
+            }
         } else {
             embed.setDescription("Unable to disconnect as Player is not detected in any VC of this guild or is not in the binded text channel!")
             message.channel.send(embed)
