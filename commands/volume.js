@@ -4,6 +4,7 @@ module.exports = {
     name: "volume",
     aliases: ["v"],
     description: "Change Bot Volume",
+    usage: "[number (not above 100 or below 0)]",
     async execute(client, message, args) {
         const player = message.client.Music.get(message.guild.id);
         var args = parseInt(args)

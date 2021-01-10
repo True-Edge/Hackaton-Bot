@@ -66,7 +66,7 @@ client.once('ready', () => {
 
 client.on('raw', (d) => {client.Music.updateVoiceState(d)})
 client.on('message', async (message) => {
-    const prefix = '$';
+    const prefix = require("./JSON/prefix.json").prefix
     const args = message.content.slice(prefix.length).trim().split(" ");
     const commandName = args.shift().toLowerCase()
 

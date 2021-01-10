@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
     name: "queue",
     description: "Display da queue!",
+    usage: '[number/null = 1]',
     async execute(client, message, args) {
         const player = message.client.Music.get(message.guild.id);
         const queue = player.queue;
