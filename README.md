@@ -3,9 +3,9 @@
 
  ## Requirements
 
- Java 11 or higher
+ Java 11 or higher ([JDK version [Java Development Kit]](https://jdk.java.net/15/))
 
- node.js + npm
+ [node.js + npm](https://nodejs.org/en/)
 
 ### Module required
 
