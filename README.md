@@ -1,5 +1,5 @@
 # Hackaton-Bot
- Just a music bot in JS.
+ [An entry to Hackation event](https://discord.com/invite/5rmZHms)
 
  ## Requirements (Window)
 
