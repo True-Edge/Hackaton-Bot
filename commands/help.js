@@ -13,7 +13,7 @@ module.exports = {
 
         if (!args.length) {
             data.push(`Here's a list of my command:\n`);
-            data.push(commands.map(command => command.name).join('\n'));
+            data.push(`\`${commands.map(command => command.name).join('\n')}\``);
             data.push(`\nYou can send \`${botprefix}help [command name]\` to get specific info of a comamnd!`)
             embed.setDescription(data);
             message.channel.send(embed)

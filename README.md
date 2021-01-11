@@ -5,6 +5,7 @@
 
  Java 11 or higher ([JDK version [Java Development Kit]](https://jdk.java.net/15/))
  [Add Java JDK bin to PATH for window]
+ [Installation guild](https://docs.oracle.com/javase/10/install/installation-jdk-and-jre-microsoft-windows-platforms.htm)
 
  [node.js + npm](https://nodejs.org/en/)
 
