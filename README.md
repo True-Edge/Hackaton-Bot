@@ -1,5 +1,5 @@
 # Hackaton-Bot
- [An entry to Hackation event](https://discord.com/invite/5rmZHms)
+ [An entry to Hackaton event](https://discord.com/invite/5rmZHms)
 
  ## Requirements (Window)
 
