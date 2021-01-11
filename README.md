@@ -10,7 +10,7 @@
  [node.js + npm](https://nodejs.org/en/)
 
  ## Requirements (Linux)
- sudo apt install default-jdk
+ sudo apt install default-jdk tmux
  sudo apt install node.js
  
 ### Module required
